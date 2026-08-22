@@ -1,0 +1,11 @@
+# Satgas PPKPT Universitas Adzkia
+
+Portal resmi Satgas Pencegahan dan Penanganan Kekerasan di Perguruan Tinggi (PPKPT) Universitas Adzkia.
+
+- [Beranda](/)
+- [Tentang Satgas PPKPT](/tentang)
+- [Alur Pelaporan](/alur)
+- [Unduhan](/unduhan)
+- [Berita](/berita)
+- [Kontak](/kontak)
+- [Buat Aduan](/aduan)

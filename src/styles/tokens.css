@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/* ===== Token warna — sumber: logo Adzkia (DESIGN.md §2) ===== */
+@theme {
+  --color-brand-red: #d9251b;
+  --color-brand-red-dark: #a81d15;
+  --color-brand-red-soft: #fbeae8;
+  --color-brand-blue: #1a6bb5;
+  --color-brand-blue-soft: #e8f1f9;
+  --color-link: #1a6bb5;
+  --color-brand-gold: #a57b03;
+  --color-ink: #1c2024;
+  --color-ink-soft: #4b5563;
+  --color-muted: #6b7280;
+  --color-bg: #faf9f7;
+  --color-surface: #ffffff;
+  --color-border: #e7e4df;
+  --color-success: #1a7f37;
+  --color-warning: #b45309;
+  --color-danger: #b91c1c;
+
+  /* ===== Tipografi (DESIGN.md §3) ===== */
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* ===== Radius (DESIGN.md §4) ===== */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* ===== Shadow (DESIGN.md §4) ===== */
+  --shadow-sm: 0 1px 2px rgba(16, 18, 20, 0.06);
+  --shadow-md: 0 6px 16px rgba(16, 18, 20, 0.10);
+  --shadow-lg: 0 16px 40px rgba(16, 18, 20, 0.16);
+
+  /* ===== Motion (DESIGN.md §6) ===== */
+  --ease-out-soft: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ===== Glass: tema (DESIGN.md §4) ===== */
+  --gradient-brand: linear-gradient(135deg, rgba(46, 126, 192, 0.14), rgba(217, 37, 27, 0.10));
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-blur: 16px;
+  --glass-border: 1px solid rgba(255, 255, 255, 0.55);
+  --glass-edge: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 32px rgba(16, 18, 20, 0.12);
+}
+
+/* ===== Font self-host (DESIGN.md §3) ===== */
+@font-face {
+  font-family: "Geist";
+  src: url("@/assets/fonts/Geist-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter-Variable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("@/assets/fonts/Inter-Variable-Italic.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ===== Dasar ===== */
+html {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-bg);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+/* ===== Glass: navbar + panel hero + kartu publik (DESIGN.md §4) ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  box-shadow: var(--glass-edge), var(--glass-shadow);
+}
+
+.glass-gradient {
+  background: linear-gradient(135deg, rgba(46, 126, 192, 0.10), rgba(217, 37, 27, 0.07)), var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: var(--glass-border);
+  box-shadow: var(--glass-edge), var(--glass-shadow);
+}
+
+/* Latar aksen biru-merah untuk hero/section */
+.brand-gradient-bg {
+  background-image: var(--gradient-brand);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .glass,
+  .glass-gradient {
+    background: #ffffff;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* ===== Aksesibilitas ===== */
+:focus-visible {
+  outline: 2px solid var(--color-link);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
