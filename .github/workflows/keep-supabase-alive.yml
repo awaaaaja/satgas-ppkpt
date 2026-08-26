@@ -1,0 +1,20 @@
+name: keep-supabase-alive
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST (publishable key, publik)
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://zprhqpntivnqixuuioiy.supabase.co/rest/v1/documents?select=id&limit=1" \
+            -H "apikey: sb_publishable_Yd-rd1JvxvjYnjHkiTL8XA_AJ5uTYjc"
+      - name: Ping Auth (cek health)
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://zprhqpntivnqixuuioiy.supabase.co/auth/v1/health"
